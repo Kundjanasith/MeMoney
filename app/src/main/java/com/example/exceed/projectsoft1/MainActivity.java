@@ -1,5 +1,6 @@
 package com.example.exceed.projectsoft1;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -185,10 +186,12 @@ public class MainActivity extends AppCompatActivity
                 calendar[i][j].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Intent intent = new Intent(MainActivity.this, DateActivity.class);
-//                        intent.putExtra("date",dayName[finalJ]+" "+calendar[finalI][finalJ].getText().toString()+" "+
-//                                MyCalendar.getInstance().getDate().getReadableMonth()+" "+ MyCalendar.getInstance().getDate().getYear());
-//                        startActivity(intent);
+                        Intent intent = new Intent(MainActivity.this, DateActivity.class);
+                        String temp = dayName[finalJ]+" "+calendar[finalI][finalJ].getText().toString()+" "+
+                                MyCalendar.getInstance().getDate().getReadableMonth()+" "+ MyCalendar.getInstance().getDate().getYear();
+                        intent.putExtra("date",temp);
+                        Storage.getInstance().createDate(temp);
+                        startActivity(intent);
                     }
                 });
             }

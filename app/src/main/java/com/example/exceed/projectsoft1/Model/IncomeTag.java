@@ -1,25 +1,28 @@
 package com.example.exceed.projectsoft1.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by exceed on 4/14/16 AD.
  */
-public class IncomeTag {
-    private static int id = 0;
+public class IncomeTag implements Serializable{
+    private static int counter = 0;
+    private int id;
     private String name;
     private int red;
     private int green;
     private int blue;
 
     public IncomeTag(String name, int red, int green, int blue) {
-        id++;
+        counter++;
         this.name = name;
         this.red = red;
         this.green = green;
         this.blue = blue;
     }
 
-    public static int getId() {
-        return id;
+    public int getId() {
+        return id=counter;
     }
 
     public String getName() {

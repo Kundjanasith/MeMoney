@@ -1,5 +1,6 @@
 package com.example.exceed.projectsoft1.Model;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -7,8 +8,9 @@ import java.util.List;
 /**
  * Created by exceed on 4/14/16 AD.
  */
-public class Income {
-    private static int id = 0;
+public class Income implements Serializable{
+    private static int counter = 0;
+    private long id;
     private String name;
     private String desc;
     private double price;
@@ -16,15 +18,15 @@ public class Income {
     private List<IncomeTag> incomeTagList;
 
     public Income(String name, String desc, double price) {
-        id++;
         this.name = name;
         this.desc = desc;
         this.price = price;
         SimpleDateFormat s = new SimpleDateFormat("EEEE dd MMMM yyyy-HH:mm:ss");
         this.createdDate = s.format(new Date());
+        this.id = System.nanoTime();
     }
 
-    public static int getId() {
+    public long getId() {
         return id;
     }
 
@@ -67,4 +69,13 @@ public class Income {
     public void setIncomeTagList(List<IncomeTag> incomeTagList) {
         this.incomeTagList = incomeTagList;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Income)) return false;
+        Income income = (Income) o;
+        return id == income.id;
+    }
+
 }
