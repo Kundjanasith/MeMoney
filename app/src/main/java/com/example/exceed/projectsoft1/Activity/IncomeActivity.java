@@ -62,6 +62,7 @@ public class IncomeActivity extends AppCompatActivity {
         tvDate.setText(date);
         tvName.setText(income.getName());
         tvPrice.setText(income.getPrice() + "");
+        edDesc.setText(income.getDesc());
         String x = income.getCreatedDate().split("-")[0];
 //        createdDate.setText(x.split("/")[1]+" "+x.split("/")[2]+" "+x.split("/")[3]);
         createdDate.setText(x);

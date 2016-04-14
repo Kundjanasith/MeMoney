@@ -1,7 +1,10 @@
 package com.example.exceed.projectsoft1.Adapter;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +43,31 @@ public class IncomeGetTagAdapter extends RecyclerView.Adapter<IncomeGetTagAdapte
         final IncomeTag tag = Storage.getInstance().getIncomeTag(date, income).get(i);
         viewHolder.tag_name.setText(tag.getName());
         viewHolder.tag_name.setBackgroundColor(Color.rgb(tag.getRed(), tag.getGreen(), tag.getBlue()));
+        viewHolder.tag_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater layoutInflater = LayoutInflater.from(v.getContext());
+                final View promptView = layoutInflater.inflate(R.layout.ask_y_n, null);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setView(promptView);
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.i("xoxo", date);
+                        Storage.getInstance().outIncomeEachTag(date,income,tag);
+//                        r.setAdapter(getTagAdapter);
+                        notifyDataSetChanged();
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+            }
+        });
     }
 
     @Override

@@ -110,4 +110,12 @@ public class Storage {
         List<Income> y = dayMap.get(date).getIncomes();
         return  y.get(dayMap.get(date).getIncomes().indexOf(income)).getTags();
     }
+    public void outIncomeEachTag(String date,Income i,IncomeTag tag) {
+        for (Income s : this.getIncomeFromDate(date)) {
+            if (s.equals(i)) {
+                s.getTags().remove(tag);
+                s.getRemainTag().add(tag);
+            }
+        }
+    }
 }
