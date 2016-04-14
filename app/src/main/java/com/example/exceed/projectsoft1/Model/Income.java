@@ -2,6 +2,7 @@ package com.example.exceed.projectsoft1.Model;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class Income implements Serializable{
         this.name = name;
         this.desc = desc;
         this.price = price;
+        this.incomeTagList = new ArrayList<>();
         SimpleDateFormat s = new SimpleDateFormat("EEEE dd MMMM yyyy-HH:mm:ss");
         this.createdDate = s.format(new Date());
         this.id = System.nanoTime();
@@ -61,13 +63,13 @@ public class Income implements Serializable{
         this.createdDate = createdDate;
     }
 
-    public List<IncomeTag> getIncomeTagList() {
-        return incomeTagList;
-    }
-
-    public void setIncomeTagList(List<IncomeTag> incomeTagList) {
-        this.incomeTagList = incomeTagList;
-    }
+//    public List<IncomeTag> getIncomeTagList() {
+//        return incomeTagList;
+//    }
+//
+//    public void setIncomeTagList(List<IncomeTag> incomeTagList) {
+//        this.incomeTagList = incomeTagList;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -75,6 +77,22 @@ public class Income implements Serializable{
         if (!(o instanceof Income)) return false;
         Income income = (Income) o;
         return id == income.id;
+    }
+
+    public List<IncomeTag> getTags() {
+        return incomeTagList;
+    }
+
+    public void addTag(IncomeTag tag){
+        this.incomeTagList.add(tag);
+    }
+
+    public List<IncomeTag> getRemainTag() {
+        List<IncomeTag> temp = new ArrayList<>();
+        for(IncomeTag t: Storage.getInstance().getIncomeTags()){
+            if(!this.incomeTagList.contains(t)) temp.add(t);
+        }
+        return temp;
     }
 
 }

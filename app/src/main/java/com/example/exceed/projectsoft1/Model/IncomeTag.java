@@ -20,6 +20,9 @@ public class IncomeTag implements Serializable{
         this.blue = blue;
     }
 
+    public void setId(long x){
+        this.id = x;
+    }
     public long getId() {
         return id;
     }
