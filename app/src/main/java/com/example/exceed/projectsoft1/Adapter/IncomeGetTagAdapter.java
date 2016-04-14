@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,9 +52,7 @@ public class IncomeGetTagAdapter extends RecyclerView.Adapter<IncomeGetTagAdapte
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Log.i("xoxo", date);
                         Storage.getInstance().outIncomeEachTag(date,income,tag);
-//                        r.setAdapter(getTagAdapter);
                         notifyDataSetChanged();
                     }
                 });

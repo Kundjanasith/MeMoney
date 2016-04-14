@@ -10,10 +10,12 @@ import java.util.List;
 public class Day implements Serializable{
     private String name;
     private List<Income> incomes;
+    private List<Expense> expenses;
 
     public Day(String name) {
         this.name = name;
         this.incomes = new ArrayList<>();
+        this.expenses = new ArrayList<>();
     }
 
     public String getName() {
@@ -28,6 +30,9 @@ public class Day implements Serializable{
         double result = 0;
         for(Income i:incomes){
             result+=i.getPrice();
+        }
+        for(Expense e:expenses){
+            result-=e.getPrice();
         }
         return result;
     }

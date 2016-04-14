@@ -1,27 +1,26 @@
 package com.example.exceed.projectsoft1.Model;
 
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
- * Created by exceed on 4/14/16 AD.
+ * Created by exceed on 4/15/16 AD.
  */
-public class Income implements Serializable{
+public class Expense {
     private long id;
     private String name;
     private String desc;
     private double price;
     private String createdDate;
-    private List<IncomeTag> incomeTagList;
+    private List<ExpenseTag> ExpenseTagList;
 
-    public Income(String name, String desc, double price) {
+    public Expense(String name, String desc, double price) {
         this.name = name;
         this.desc = desc;
         this.price = price;
-        this.incomeTagList = new ArrayList<>();
+        this.ExpenseTagList = new ArrayList<>();
         SimpleDateFormat s = new SimpleDateFormat("EEEE dd MMMM yyyy-HH:mm:ss");
         this.createdDate = s.format(new Date());
         this.id = System.nanoTime();
@@ -66,25 +65,24 @@ public class Income implements Serializable{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Income)) return false;
-        Income income = (Income) o;
-        return id == income.id;
+        if (!(o instanceof Expense)) return false;
+        Expense Expense = (Expense) o;
+        return id == Expense.id;
     }
 
-    public List<IncomeTag> getTags() {
-        return incomeTagList;
+    public List<ExpenseTag> getTags() {
+        return ExpenseTagList;
     }
 
-    public void addTag(IncomeTag tag){
-        this.incomeTagList.add(tag);
+    public void addTag(ExpenseTag tag){
+        this.ExpenseTagList.add(tag);
     }
 
-    public List<IncomeTag> getRemainTag() {
-        List<IncomeTag> temp = new ArrayList<>();
-        for(IncomeTag t: Storage.getInstance().getIncomeTags()){
-            if(!this.incomeTagList.contains(t)) temp.add(t);
+    public List<ExpenseTag> getRemainTag() {
+        List<ExpenseTag> temp = new ArrayList<>();
+        for(ExpenseTag t: Storage.getInstance().getExpenseTags()){
+            if(!this.ExpenseTagList.contains(t)) temp.add(t);
         }
         return temp;
     }
-
 }

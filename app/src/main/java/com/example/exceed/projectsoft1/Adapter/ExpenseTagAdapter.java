@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.exceed.projectsoft1.Model.IncomeTag;
+import com.example.exceed.projectsoft1.Model.ExpenseTag;
 import com.example.exceed.projectsoft1.Model.Storage;
 import com.example.exceed.projectsoft1.R;
 
@@ -16,28 +16,29 @@ import java.io.Serializable;
 /**
  * Created by exceed on 4/10/16 AD.
  */
-public class IncomeTagAdapter extends RecyclerView.Adapter<IncomeTagAdapter.ViewHolder> implements Serializable {
+public class ExpenseTagAdapter extends RecyclerView.Adapter<ExpenseTagAdapter.ViewHolder> implements Serializable {
     private ViewHolder viewHolder;
     OnItemClickListener mItemClickListener;
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.cell_incometag, viewGroup, false);
+                .inflate(R.layout.cell_expensetag, viewGroup, false);
         viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
-        final IncomeTag tag = Storage.getInstance().getIncomeTags().get(i);
+        final ExpenseTag tag = Storage.getInstance().getExpenseTags().get(i);
         viewHolder.tag_name.setText(tag.getName());
         viewHolder.tag_name.setBackgroundColor(Color.rgb(tag.getRed(), tag.getGreen(), tag.getBlue()));
     }
 
     @Override
     public int getItemCount() {
-        return Storage.getInstance().getIncomeTags().size();
+        return Storage.getInstance().getExpenseTags().size();
     }
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {

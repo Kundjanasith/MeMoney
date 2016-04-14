@@ -13,11 +13,14 @@ import java.util.Map;
 public class Storage {
     private static Map<String,Day> dayMap;
     private List<IncomeTag> incomeTags;
+    private List<ExpenseTag> expenseTags;
     private static Storage instance = null;
     private Storage(){
         incomeTags = new ArrayList<>();
+        expenseTags = new ArrayList<>();
         dayMap = new HashMap<>();
         this.debugIncomeTag();
+        this.debugExpenseTag();
     }
     private void debugIncomeTag(){
         IncomeTag award = new IncomeTag("Award",255,0,0);
@@ -38,6 +41,35 @@ public class Storage {
         incomeTags.add(gift);
         incomeTags.add(sell);
         incomeTags.add(other);
+    }
+    private void debugExpenseTag(){
+        ExpenseTag food_beverage = new ExpenseTag("Food&Beverage",0,0,255);
+        food_beverage.setId(1);
+        ExpenseTag bills_utilities = new ExpenseTag("Bills&Utilities",0,255,0);
+        bills_utilities.setId(2);
+        ExpenseTag transportation = new ExpenseTag("Transportation",255,0,0);
+        transportation.setId(3);
+        ExpenseTag shopping = new ExpenseTag("Shopping",255,255,0);
+        shopping.setId(4);
+        ExpenseTag friends_lover = new ExpenseTag("Friends&Lover",255,0,255);
+        friends_lover.setId(5);
+        ExpenseTag entertainment = new ExpenseTag("Entertainment",0,175,175);
+        entertainment.setId(6);
+        ExpenseTag travel = new ExpenseTag("Travel",175,175,0);
+        travel.setId(7);
+        ExpenseTag health_fitness = new ExpenseTag("Health&Fitness",175,0,175);
+        health_fitness.setId(8);
+        ExpenseTag other = new ExpenseTag("Others",0,255,255);
+        other.setId(9);
+        expenseTags.add(food_beverage);
+        expenseTags.add(bills_utilities);
+        expenseTags.add(transportation);
+        expenseTags.add(shopping);
+        expenseTags.add(friends_lover);
+        expenseTags.add(entertainment);
+        expenseTags.add(travel);
+        expenseTags.add(health_fitness);
+        expenseTags.add(other);
     }
     public static Storage getInstance(){
         if(instance==null) instance = new Storage();
@@ -81,6 +113,9 @@ public class Storage {
     public List<IncomeTag> getIncomeTags(){
         return this.incomeTags;
     }
+    public List<ExpenseTag> getExpenseTags(){
+        return this.expenseTags;
+    }
     public void updateIncomeTag(IncomeTag incomeTag,String name,int red,int green,int blue){
         for(IncomeTag i:incomeTags){
             if(i.getId()==incomeTag.getId()){
@@ -92,8 +127,22 @@ public class Storage {
             }
         }
     }
+    public void updateExpenseTag(ExpenseTag expenseTag,String name,int red,int green,int blue){
+        for(ExpenseTag i:expenseTags){
+            if(i.getId()==expenseTag.getId()){
+                int index = expenseTags.indexOf(i);
+                expenseTags.get(index).setName(name);
+                expenseTags.get(index).setRed(red);
+                expenseTags.get(index).setGreen(green);
+                expenseTags.get(index).setBlue(blue);
+            }
+        }
+    }
     public void addIncomeTag(IncomeTag incomeTag){
         incomeTags.add(incomeTag);
+    }
+    public void addExpenseTag(ExpenseTag expenseTag){
+        expenseTags.add(expenseTag);
     }
     public List<IncomeTag> getRemainTag(String date,Income income){
         return dayMap.get(date).getIncomes().get(dayMap.get(date).getIncomes().indexOf(income)).getRemainTag();
@@ -118,5 +167,8 @@ public class Storage {
     }
     public void deleteIncomeTag(IncomeTag incomeTag){
         incomeTags.remove(incomeTag);
+    }
+    public void deleteExpenseTag(ExpenseTag expenseTag){
+        expenseTags.remove(expenseTag);
     }
 }

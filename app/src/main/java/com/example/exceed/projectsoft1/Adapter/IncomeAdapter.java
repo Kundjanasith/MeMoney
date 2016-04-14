@@ -1,7 +1,6 @@
 package com.example.exceed.projectsoft1.Adapter;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +35,6 @@ public class IncomeAdapter extends RecyclerView.Adapter<IncomeAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        Log.i("wwww",date);
         List<Income> incomeDate = Storage.getInstance().getIncomeFromDate(date);
         if(incomeDate.get(i).getName().length()>8)
             viewHolder.income_name.setText("Name:" + incomeDate.get(i).getName().substring(0,8)+"...");
@@ -47,7 +45,6 @@ public class IncomeAdapter extends RecyclerView.Adapter<IncomeAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        Log.i("sstemZ",date);
         return Storage.getInstance().getIncomeFromDate(date).size();
     }
 

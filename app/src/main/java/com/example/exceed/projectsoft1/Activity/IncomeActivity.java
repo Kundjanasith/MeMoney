@@ -31,7 +31,6 @@ public class IncomeActivity extends AppCompatActivity {
     private EditText edDesc;
     private TextView createdDate;
     private TextView createdTime;
-//    private RatingBar rating;
     private ImageButton delete_button;
     private FloatingActionButton save_button;
     private ImageButton add_tag;
@@ -43,7 +42,6 @@ public class IncomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_income);
         date = getIntent().getStringExtra("dateZ");
         income = (Income) getIntent().getSerializableExtra("income");
-//        Storage.getInstance().
         tvDate = (TextView) findViewById(R.id.income_date);
         tvName = (EditText) findViewById(R.id.income_name);
         tvPrice = (EditText) findViewById(R.id.income_price);
@@ -74,7 +72,6 @@ public class IncomeActivity extends AppCompatActivity {
         tvPrice.setText(income.getPrice() + "");
         edDesc.setText(income.getDesc());
         String x = income.getCreatedDate().split("-")[0];
-//        createdDate.setText(x.split("/")[1]+" "+x.split("/")[2]+" "+x.split("/")[3]);
         createdDate.setText(x);
         createdTime.setText(income.getCreatedDate().split("-")[1]);
         add_tag = (ImageButton) findViewById(R.id.add_tag);
@@ -116,19 +113,6 @@ public class IncomeActivity extends AppCompatActivity {
         IrecList.setItemAnimator(new DefaultItemAnimator());
         IrecList.setAdapter(adapter);
         builder.setView(promptView);
-//        builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                rec_list.setAdapter(getAdapter);
-//            }
-//        });
-//        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                dialog.cancel();
-//            }
-//        });
-
         builder.show();
         rec_list.setAdapter(getAdapter);
     }

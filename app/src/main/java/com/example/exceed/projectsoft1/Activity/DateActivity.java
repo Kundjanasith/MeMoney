@@ -81,7 +81,6 @@ public class DateActivity extends AppCompatActivity {
         Log.i("fucksuck",st);
         amountTotal.setText("Amount : "+ Storage.getInstance().getTotal(t)+"");
 
-//        Double t = Storage.getInstance().getTotalAmount(showDate.getText().toString());
     }
         private void showInputDialogIncome() {
         LayoutInflater layoutInflater = LayoutInflater.from(DateActivity.this);

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:paddingTop="16dp"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:text="Expense Tag"
+        android:id="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/delete_incometag_button"
+        android:layout_toStartOf="@+id/delete_incometag_button" />
+
+    <TextView
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Name :"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:singleLine="true"
+        android:maxLength="15"
+        android:hint="name"
+        android:id="@+id/input_income_tag"
+        android:layout_below="@+id/textView3"
+        android:layout_alignEnd="@+id/color" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/color"
+        android:layout_below="@+id/input_income_tag"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Red"
+        android:id="@+id/Red"
+        android:layout_below="@+id/color"
+        android:layout_alignParentStart="true" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/color"
+        android:layout_toEndOf="@+id/textView9"
+        android:id="@+id/progressBar_Red"
+        android:layout_alignStart="@+id/progress_Blue"
+        android:indeterminate="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blue"
+        android:id="@+id/textView9"
+        android:layout_below="@+id/progressBar_Red"
+        android:layout_alignParentStart="true" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_Blue"
+        android:layout_below="@+id/progressBar_Red"
+        android:layout_toEndOf="@+id/textView10"
+        android:indeterminate="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Green"
+        android:id="@+id/textView10"
+        android:layout_below="@+id/textView9"
+        android:layout_alignParentStart="true" />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar_Green"
+        android:layout_below="@+id/progress_Blue"
+        android:layout_toEndOf="@+id/textView10"
+        android:indeterminate="false" />
+
+    <ImageButton
+        android:id="@+id/delete_incometag_button"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/headExpense"
+        android:src="@android:drawable/ic_menu_delete"
+        android:text="Delete"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/progressBar_Red" />
+
+
+</RelativeLayout>
