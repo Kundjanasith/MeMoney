@@ -9,41 +9,37 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.exceed.projectsoft1.Model.Income;
-import com.example.exceed.projectsoft1.Model.IncomeTag;
+import com.example.exceed.projectsoft1.Model.Expense;
+import com.example.exceed.projectsoft1.Model.ExpenseTag;
 import com.example.exceed.projectsoft1.Model.Storage;
 import com.example.exceed.projectsoft1.R;
 
 import java.io.Serializable;
 
 /**
- * Created by exceed on 4/10/16 AD.
+ * Created by exceed on 4/11/16 AD.
  */
-public class IncomeRemainTagAdapter extends RecyclerView.Adapter<IncomeRemainTagAdapter.ViewHolder> implements Serializable {
+public class ExpenseGetTagAdapter extends RecyclerView.Adapter<ExpenseGetTagAdapter.ViewHolder> implements Serializable {
     private ViewHolder viewHolder;
     OnItemClickListener mItemClickListener;
     private String date;
-    private Income income;
-    private RecyclerView r;
-    private IncomeGetTagAdapter getTagAdapter;
-    public IncomeRemainTagAdapter(String date, Income income, RecyclerView r, IncomeGetTagAdapter getTagAdapter){
+    private Expense income;
+    public ExpenseGetTagAdapter(String date, Expense income){
         this.date = date;
-      this.income = income;
-        this.r = r;
-        this.getTagAdapter = getTagAdapter;
+        this.income = income;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.each_cell, viewGroup, false);
+                .inflate(R.layout.each_cell1, viewGroup, false);
         viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder viewHolder, final int i) {
-        final IncomeTag tag = Storage.getInstance().getRemainTagI(date, income).get(i);
+    public void onBindViewHolder(ViewHolder viewHolder, final int i) {
+        final ExpenseTag tag = Storage.getInstance().getExpenseTag(date, income).get(i);
         viewHolder.tag_name.setText(tag.getName());
         viewHolder.tag_name.setBackgroundColor(Color.rgb(tag.getRed(), tag.getGreen(), tag.getBlue()));
         viewHolder.tag_name.setOnClickListener(new View.OnClickListener() {
@@ -56,9 +52,8 @@ public class IncomeRemainTagAdapter extends RecyclerView.Adapter<IncomeRemainTag
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                            Storage.getInstance().addIncomeEachTag(date, income, tag);
-                            r.setAdapter(getTagAdapter);
-                            notifyDataSetChanged();
+                        Storage.getInstance().outExpenseEachTag(date,income,tag);
+                        notifyDataSetChanged();
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -74,7 +69,7 @@ public class IncomeRemainTagAdapter extends RecyclerView.Adapter<IncomeRemainTag
 
     @Override
     public int getItemCount() {
-        return Storage.getInstance().getRemainTagI(date,income).size();
+        return Storage.getInstance().getExpenseTag(date,income).size();
     }
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
@@ -102,4 +97,3 @@ public class IncomeRemainTagAdapter extends RecyclerView.Adapter<IncomeRemainTag
 
     }
 }
-

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.exceed.projectsoft1.Activity.ExpenseActivity"
+    android:background="@color/colorExpense">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expense"
+        android:textSize="30dp"
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold|italic"
+        android:id="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date :"
+        android:textColor="#000000"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/textView4"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:id="@+id/text_date" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dd/MMMM/yyyy"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:id="@+id/income_date"
+        android:layout_alignTop="@+id/text_date"
+        android:layout_toEndOf="@+id/text_date" />
+
+    <EditText
+        android:enabled="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name :"
+        android:textColor="#000000"
+        android:id="@+id/text_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:layout_below="@+id/income_date" />
+
+    <EditText
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:singleLine="true"
+        android:id="@+id/income_name"
+        android:textSize="20dp"
+        android:layout_alignTop="@+id/text_name"
+        android:layout_alignEnd="@+id/income_description"
+        android:layout_alignStart="@+id/income_price" />
+
+    <EditText
+        android:enabled="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price :"
+        android:textColor="#000000"
+        android:id="@+id/text_price"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/income_price"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="price "
+        android:singleLine="true"
+        android:id="@+id/income_price"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/income_name"
+        android:layout_alignEnd="@+id/income_description"
+        android:layout_toEndOf="@+id/text_name" />
+
+    <TextView
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description :"
+        android:id="@+id/desc"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/income_price" />
+
+    <EditText
+        android:textColor="#000000"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="top|left"
+        android:hint=""
+        android:layout_marginBottom="20dp"
+        android:maxLines="5"
+        android:maxHeight="150dp"
+        android:background="@color/headExpense"
+        android:id="@+id/income_description"
+        android:layout_marginTop="15dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/desc"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/textView11" />
+
+    <!--<RatingBar-->
+    <!--android:saveEnabled="true"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/ratingBar"-->
+    <!--android:progressTint="@color/colorRating"-->
+    <!--android:layout_above="@+id/textView11"-->
+    <!--android:layout_alignStart="@+id/linearLayout2" />-->
+
+    <!--<TextView-->
+    <!--android:textColor="#000000"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Rate :"-->
+    <!--android:id="@+id/textView9"-->
+    <!--android:textSize="20dp"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_above="@+id/save_income"-->
+    <!--android:layout_alignStart="@+id/textView12" />-->
+
+    <ImageButton
+        android:id="@+id/delete_income_button"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@color/headExpense"
+        android:src="@android:drawable/ic_menu_delete"
+        android:text="Delete" />
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:backgroundTint="@color/headExpense"
+        android:layout_alignEnd="@+id/income_description"
+        android:src="@android:drawable/ic_menu_save"
+        android:layout_marginBottom="21dp"
+        android:id="@+id/save_income" />
+
+    <TextView
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Created Date :"
+        android:id="@+id/textView11"
+        android:textSize="15dp"
+        android:gravity="center_vertical"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignStart="@+id/income_description" />
+
+    <TextView
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time :"
+        android:id="@+id/textView12"
+        android:textSize="15dp"
+        android:gravity="center_vertical"
+        android:layout_alignTop="@+id/created_income_time"
+        android:layout_toStartOf="@+id/save_income" />
+
+    <TextView
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date"
+        android:id="@+id/created_income_date"
+        android:textSize="15dp"
+        android:gravity="center_vertical"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_toEndOf="@+id/desc" />
+
+    <TextView
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="time"
+        android:id="@+id/created_income_time"
+        android:textSize="15dp"
+        android:gravity="center_vertical"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignStart="@+id/save_income" />
+
+    <TextView
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tag :"
+        android:id="@+id/textView13"
+        android:textSize="20dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_alignTop="@+id/add_tag"
+        android:layout_alignStart="@+id/rec_income_tag"
+        android:layout_alignEnd="@+id/textView11"
+        android:layout_above="@+id/rec_income_tag" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/colorExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/linearLayout2"
+        android:layout_alignEnd="@+id/income_description"
+        android:layout_toEndOf="@+id/textView12"
+        android:layout_alignStart="@+id/delete_income_button"
+        android:layout_alignTop="@+id/add_tag">
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rec_income_tag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorExpense"
+        android:layout_alignTop="@+id/save_income"
+        android:layout_alignStart="@+id/textView11"
+        android:layout_alignBottom="@+id/save_income"
+        android:layout_alignEnd="@+id/textView12">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <ImageButton
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/headExpense"
+        android:text="add tag"
+        android:src="@android:drawable/ic_menu_edit"
+        android:tint="#FFFFFF"
+        android:id="@+id/add_tag"
+        android:layout_alignEnd="@+id/rec_income_tag"
+        android:layout_alignStart="@+id/textView12"
+        android:layout_above="@+id/save_income" />
+
+</RelativeLayout>

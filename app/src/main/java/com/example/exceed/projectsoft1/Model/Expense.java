@@ -1,5 +1,6 @@
 package com.example.exceed.projectsoft1.Model;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * Created by exceed on 4/15/16 AD.
  */
-public class Expense {
+public class Expense implements Serializable{
     private long id;
     private String name;
     private String desc;

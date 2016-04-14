@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".Activity.DateActivity" />
         <activity android:name=".Activity.IncomeActivity" />
-        <activity android:name=".Activity.TagActivity"></activity>
+        <activity android:name=".Activity.TagActivity" />
+        <activity android:name=".Activity.ExpenseActivity"></activity>
     </application>
 
 </manifest>

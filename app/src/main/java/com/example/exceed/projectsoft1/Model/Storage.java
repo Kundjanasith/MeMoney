@@ -89,11 +89,20 @@ public class Storage {
     public void addDateIncome(String date,Income i){
         dayMap.get(date).getIncomes().add(i);
     }
+    public void addDateExpense(String date,Expense e){
+        dayMap.get(date).getExpenses().add(e);
+    }
     public void deleteDateIncome(String date,Income i){
         dayMap.get(date).getIncomes().remove(i);
     }
+    public void deleteDateExpense(String date,Expense e){
+        dayMap.get(date).getExpenses().remove(e);
+    }
     public List<Income> getIncomeFromDate(String date){
         return dayMap.get(date).getIncomes();
+    }
+    public List<Expense> getExpenseFromDate(String date){
+        return dayMap.get(date).getExpenses();
     }
     public void createDate(String date){
         Log.i("x2", date);
@@ -107,6 +116,17 @@ public class Storage {
                 dayMap.get(date).getIncomes().get(index).setName(name);
                 dayMap.get(date).getIncomes().get(index).setPrice(price);
                 dayMap.get(date).getIncomes().get(index).setDesc(desc);
+            }
+        }
+    }
+    public void updateExpense(String date,Expense e,String name,String desc,double price){
+        Log.i("id-tem-tem",e.getId()+"");
+        for(int index=0 ; index<dayMap.get(date).getExpenses().size() ; index++){
+            Log.i("id-tem",e.getId()+"");
+            if(e.getId()==dayMap.get(date).getExpenses().get(index).getId()){
+                dayMap.get(date).getExpenses().get(index).setName(name);
+                dayMap.get(date).getExpenses().get(index).setPrice(price);
+                dayMap.get(date).getExpenses().get(index).setDesc(desc);
             }
         }
     }
@@ -144,8 +164,11 @@ public class Storage {
     public void addExpenseTag(ExpenseTag expenseTag){
         expenseTags.add(expenseTag);
     }
-    public List<IncomeTag> getRemainTag(String date,Income income){
+    public List<IncomeTag> getRemainTagI(String date,Income income){
         return dayMap.get(date).getIncomes().get(dayMap.get(date).getIncomes().indexOf(income)).getRemainTag();
+    }
+    public List<ExpenseTag> getRemainTagE(String date,Expense expense){
+        return dayMap.get(date).getExpenses().get(dayMap.get(date).getExpenses().indexOf(expense)).getRemainTag();
     }
     public void addIncomeEachTag(String date,Income i,IncomeTag tag){
         for(Income s:this.getIncomeFromDate(date)){
@@ -153,12 +176,30 @@ public class Storage {
                 s.addTag(tag);
         }
     }
+    public void addExpenseEachTag(String date,Expense e,ExpenseTag tag){
+        for(Expense s:this.getExpenseFromDate(date)){
+            if(s.equals(e))
+                s.addTag(tag);
+        }
+    }
     public List<IncomeTag> getIncomeTag(String date,Income income){
         List<Income> y = dayMap.get(date).getIncomes();
         return  y.get(dayMap.get(date).getIncomes().indexOf(income)).getTags();
     }
+    public List<ExpenseTag> getExpenseTag(String date,Expense expense){
+        List<Expense> y = dayMap.get(date).getExpenses();
+        return  y.get(dayMap.get(date).getExpenses().indexOf(expense)).getTags();
+    }
     public void outIncomeEachTag(String date,Income i,IncomeTag tag) {
         for (Income s : this.getIncomeFromDate(date)) {
+            if (s.equals(i)) {
+                s.getTags().remove(tag);
+                s.getRemainTag().add(tag);
+            }
+        }
+    }
+    public void outExpenseEachTag(String date,Expense i,ExpenseTag tag) {
+        for (Expense s : this.getExpenseFromDate(date)) {
             if (s.equals(i)) {
                 s.getTags().remove(tag);
                 s.getRemainTag().add(tag);

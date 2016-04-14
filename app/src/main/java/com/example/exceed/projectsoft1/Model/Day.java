@@ -25,6 +25,9 @@ public class Day implements Serializable{
     public List<Income> getIncomes() {
         return incomes;
     }
+    public List<Expense> getExpenses() {
+        return expenses;
+    }
 
     public double getTotal(){
         double result = 0;

@@ -1,9 +1,11 @@
 package com.example.exceed.projectsoft1.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by exceed on 4/15/16 AD.
  */
-public class ExpenseTag {
+public class ExpenseTag implements Serializable{
     private long id;
     private String name;
     private int red;
