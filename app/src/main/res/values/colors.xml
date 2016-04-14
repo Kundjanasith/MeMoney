@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorRating">#FFFC49</color>
+    <color name="colorAccent">#000000</color>
+    <color name="colorSunday">#FF3F3F</color>
+    <color name="colorMonday">#FFD67A</color>
+    <color name="colorTueday">#FF8AAD</color>
+    <color name="colorWednesday">#BAFF7D</color>
+    <color name="colorThursday">#FF9A58</color>
+    <color name="colorFriday">#ADCAFF</color>
+    <color name="colorSaturnday">#C1B1FF</color>
+    <color name="tableRow">#E8D5AD</color>
+    <color name="colorNext">#8A7B91</color>
+    <color name="colorIncome">#C6FFB8</color>
+    <color name="colorExpense">#FFB28E</color>
+    <color name="buttonIncome">#3EFF11</color>
+    <color name="buttonExpense">#FF1700</color>
+    <color name="headIncome">#93FF7C</color>
+    <color name="headExpense">#FF8B98</color>
+</resources>
