@@ -1,4 +1,4 @@
-package com.example.exceed.projectsoft1;
+package com.example.exceed.projectsoft1.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.exceed.projectsoft1.Model.Income;
 import com.example.exceed.projectsoft1.Model.Storage;
+import com.example.exceed.projectsoft1.R;
 
 
 public class IncomeActivity extends AppCompatActivity {
@@ -119,7 +120,7 @@ public class IncomeActivity extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(IncomeActivity.this, DateActivity.class);
         String temp = date;
-        intent.putExtra("date",temp);
+        intent.putExtra("date", temp);
         startActivity(intent);
     }
 }

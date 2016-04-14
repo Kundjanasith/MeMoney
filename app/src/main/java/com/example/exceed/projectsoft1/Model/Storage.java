@@ -2,6 +2,7 @@ package com.example.exceed.projectsoft1.Model;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,9 +12,14 @@ import java.util.Map;
  */
 public class Storage {
     private static Map<String,Day> dayMap;
+    private List<IncomeTag> incomeTags;
     private static Storage instance = null;
     private Storage(){
+        incomeTags = new ArrayList<>();
         dayMap = new HashMap<>();
+    }
+    private void debugIncomeTag(){
+
     }
     public static Storage getInstance(){
         if(instance==null) instance = new Storage();
@@ -50,5 +56,22 @@ public class Storage {
                 dayMap.get(date).getIncomes().get(index).setDesc(desc);
             }
         }
+    }
+    public List<IncomeTag> getIncomeTags(){
+        return this.incomeTags;
+    }
+    public void updateIncomeTag(IncomeTag incomeTag,String name,int red,int green,int blue){
+        for(IncomeTag i:incomeTags){
+            if(i.getId()==incomeTag.getId()){
+                int index = incomeTags.indexOf(i);
+                incomeTags.get(index).setName(name);
+                incomeTags.get(index).setRed(red);
+                incomeTags.get(index).setGreen(green);
+                incomeTags.get(index).setBlue(blue);
+            }
+        }
+    }
+    public void addIncomeTag(IncomeTag incomeTag){
+        incomeTags.add(incomeTag);
     }
 }

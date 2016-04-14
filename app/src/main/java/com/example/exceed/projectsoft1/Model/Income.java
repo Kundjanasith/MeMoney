@@ -9,7 +9,6 @@ import java.util.List;
  * Created by exceed on 4/14/16 AD.
  */
 public class Income implements Serializable{
-    private static int counter = 0;
     private long id;
     private String name;
     private String desc;

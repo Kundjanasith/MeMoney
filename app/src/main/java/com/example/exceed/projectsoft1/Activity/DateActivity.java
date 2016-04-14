@@ -1,4 +1,4 @@
-package com.example.exceed.projectsoft1;
+package com.example.exceed.projectsoft1.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.exceed.projectsoft1.Adapter.IncomeAdapter;
 import com.example.exceed.projectsoft1.Model.Income;
 import com.example.exceed.projectsoft1.Model.Storage;
+import com.example.exceed.projectsoft1.R;
 
 
 public class DateActivity extends AppCompatActivity {

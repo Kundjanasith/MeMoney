@@ -6,23 +6,22 @@ import java.io.Serializable;
  * Created by exceed on 4/14/16 AD.
  */
 public class IncomeTag implements Serializable{
-    private static int counter = 0;
-    private int id;
+    private long id;
     private String name;
     private int red;
     private int green;
     private int blue;
 
     public IncomeTag(String name, int red, int green, int blue) {
-        counter++;
+        this.id = System.nanoTime();
         this.name = name;
         this.red = red;
         this.green = green;
         this.blue = blue;
     }
 
-    public int getId() {
-        return id=counter;
+    public long getId() {
+        return id;
     }
 
     public String getName() {

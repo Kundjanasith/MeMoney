@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/tableRow"
+    tools:context="com.example.exceed.projectsoft1.TagActivity">
+
+    <LinearLayout
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/hI"
+            android:text="INCOME"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorIncome"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/hE"
+            android:text="EXPENSE"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@color/colorExpense"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_below="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="2">
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="490dp"
+            android:id="@+id/income_view"
+            android:layout_marginRight="5dp"
+            android:background="@color/headIncome"
+            android:layout_weight="1">
+        </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="490dp"
+            android:id="@+id/expense_view"
+            android:layout_marginLeft="5dp"
+            android:background="@color/headExpense"
+            android:layout_weight="1">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/add_ExpenseTag"
+        app:backgroundTint="@color/buttonIncome"
+        android:src="@android:drawable/ic_input_add"
+        android:tint="#FFFFFF"
+        android:id="@+id/add_incomeTag"
+        android:layout_marginBottom="2dp"
+        android:layout_alignParentStart="true" />
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        app:backgroundTint="@color/buttonExpense"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_marginBottom="2dp"
+        android:tint="#FFFFFF"
+        android:id="@+id/add_ExpenseTag" />
+
+
+
+</RelativeLayout>

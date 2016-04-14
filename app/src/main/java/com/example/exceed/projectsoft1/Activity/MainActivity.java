@@ -1,4 +1,4 @@
-package com.example.exceed.projectsoft1;
+package com.example.exceed.projectsoft1.Activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.exceed.projectsoft1.Calendar.MyCalendar;
 import com.example.exceed.projectsoft1.Calendar.MyDate;
 import com.example.exceed.projectsoft1.Model.Storage;
+import com.example.exceed.projectsoft1.R;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -150,12 +151,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_tag) {
+            Intent intent = new Intent(MainActivity.this, TagActivity.class);
+            startActivity(intent);
         }
-// else if (id == R.id.nav_tag) {
-//            Intent intent = new Intent(MainActivity.this, TagActivity.class);
-//            Storage.getInstance().setContextIncomeTag(this);
-//            startActivity(intent);
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
