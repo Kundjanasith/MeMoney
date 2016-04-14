@@ -32,6 +32,7 @@ public class IncomeActivity extends AppCompatActivity {
     private TextView createdDate;
     private TextView createdTime;
 //    private RatingBar rating;
+    private ImageButton delete_button;
     private FloatingActionButton save_button;
     private ImageButton add_tag;
     private RecyclerView rec_list;
@@ -49,11 +50,20 @@ public class IncomeActivity extends AppCompatActivity {
         edDesc = (EditText) findViewById(R.id.income_description);
         createdDate = (TextView) findViewById(R.id.created_income_date);
         createdTime = (TextView) findViewById(R.id.created_income_time);
+        delete_button = (ImageButton) findViewById(R.id.delete_income_button);
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Storage.getInstance().deleteDateIncome(date,income);
+                onBackPressed();
+                finish();
+            }
+        });
         save_button = (FloatingActionButton) findViewById(R.id.save_income);
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Storage.getInstance().updateIncome(date,income,tvName.getText().toString(),edDesc.getText().toString(), Double.parseDouble(tvPrice.getText().toString()));
+                Storage.getInstance().updateIncome(date, income, tvName.getText().toString(), edDesc.getText().toString(), Double.parseDouble(tvPrice.getText().toString()));
                 onBackPressed();
                 finish();
             }

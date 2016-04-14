@@ -1,6 +1,7 @@
 package com.example.exceed.projectsoft1.Activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -68,9 +69,12 @@ public class TagActivity extends AppCompatActivity {
                 ib.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Log.i("s","L");
-//                        Storage.getInstance().deIncomeTag(temp);
-//                        finish();
+                        Log.i("s", "L");
+                        Storage.getInstance().deleteIncomeTag(temp);
+                        IrecList.setAdapter(incomeAdapter);
+                        Intent intent = new Intent(TagActivity.this, TagActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 });
                 redSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -137,7 +141,7 @@ public class TagActivity extends AppCompatActivity {
 //                                Storage.getInstance().setIncomeTag(i,new IncomeTag(nameText.getText().toString(), red, green, blue));
 //                            temp.setIncomeTagName(nameText.getText().toString());
 //                            temp.setRed(red[0]);
-//                            temp.setGreen(green[0]);
+//                      b      temp.setGreen(green[0]);
 //                            temp.setBlue(blue[0]);
 //                            Storage.getInstance().upIncomeTag(temp);
                             Storage.getInstance().updateIncomeTag(temp,nameText.getText().toString(),red[0],green[0],blue[0]);

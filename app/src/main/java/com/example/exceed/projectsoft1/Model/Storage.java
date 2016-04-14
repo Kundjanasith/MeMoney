@@ -57,6 +57,9 @@ public class Storage {
     public void addDateIncome(String date,Income i){
         dayMap.get(date).getIncomes().add(i);
     }
+    public void deleteDateIncome(String date,Income i){
+        dayMap.get(date).getIncomes().remove(i);
+    }
     public List<Income> getIncomeFromDate(String date){
         return dayMap.get(date).getIncomes();
     }
@@ -102,11 +105,6 @@ public class Storage {
         }
     }
     public List<IncomeTag> getIncomeTag(String date,Income income){
-//        String[] temp = date.split(" ");
-//        String s = temp[0]+"/"+temp[1]+"/"+temp[2]+"/"+temp[3];
-
-        Log.i("cpesk",date);
-        Log.i("cpesk",income.getName()+ "");
         List<Income> y = dayMap.get(date).getIncomes();
         return  y.get(dayMap.get(date).getIncomes().indexOf(income)).getTags();
     }
@@ -117,5 +115,8 @@ public class Storage {
                 s.getRemainTag().add(tag);
             }
         }
+    }
+    public void deleteIncomeTag(IncomeTag incomeTag){
+        incomeTags.remove(incomeTag);
     }
 }
