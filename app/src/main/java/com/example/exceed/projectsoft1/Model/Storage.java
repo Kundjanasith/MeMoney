@@ -14,10 +14,12 @@ public class Storage {
     private static Map<String,Day> dayMap;
     private List<IncomeTag> incomeTags;
     private List<ExpenseTag> expenseTags;
+    private List<Goal> goals;
     private static Storage instance = null;
     private Storage(){
         incomeTags = new ArrayList<>();
         expenseTags = new ArrayList<>();
+        goals = new ArrayList<>();
         dayMap = new HashMap<>();
         this.debugIncomeTag();
         this.debugExpenseTag();
@@ -211,5 +213,12 @@ public class Storage {
     }
     public void deleteExpenseTag(ExpenseTag expenseTag){
         expenseTags.remove(expenseTag);
+    }
+
+    public void addGoal(Goal goal){
+        goals.add(goal);
+    }
+    public List<Goal> getGoals(){
+        return goals;
     }
 }

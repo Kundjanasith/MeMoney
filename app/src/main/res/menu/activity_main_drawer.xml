@@ -22,6 +22,10 @@
             android:id="@+id/nav_tag"
             android:icon="@drawable/ic_menu_manage"
             android:title="TagManager" />
+        <item
+            android:id="@+id/nav_goal"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="Goal" />
     </group>
 
     <item android:title="Communicate">
