@@ -2,7 +2,12 @@ package com.example.exceed.projectsoft1.Model;
 
 import android.util.Log;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -220,5 +225,90 @@ public class Storage {
     }
     public List<Goal> getGoals(){
         return goals;
+    }
+
+    //return money
+//    public double getMoneyTo(MyDate mydate){
+//        double result = 0.0;
+//        int value2 = mydate.getDay()+mydate.getMonth()+mydate.getYear();
+//        Date d = new Date();
+//        int value1 = d.getDay()+d.getMonth()+d.getYear();
+//        return result;
+//    }
+
+    //return date count down status
+    public void goalStatus(Goal goal){
+        String result = "";
+
+        String goalDate = goal.getDueDate().split("#")[0];
+//        String goalTime = goal.getDueDate().split("#")[1];
+        int goalDay = Integer.parseInt(goalDate.split(" ")[1]);
+        int goalMonth = getNumMonth(goalDate.split(" ")[2]);
+        int goalYear = Integer.parseInt(goalDate.split(" ")[3]);
+//        int goalHour = Integer.parseInt(goalTime.split(":")[0]);
+//        int goalMin = Integer.parseInt(goalTime.split(":")[1]);
+//        int goalSec = Integer.parseInt((goalTime.split(":")[2]).split(" ")[0]);
+        int allGoal = goalDay+goalMonth+goalYear;
+        Log.i("x1",allGoal+"");
+
+
+        SimpleDateFormat s = new SimpleDateFormat("dd MM yyyy#HH:mm:ss");
+        Date date = new Date();
+        String dateString = s.format(date);
+        String curDate = dateString.split("#")[0];
+        int curDay = Integer.parseInt(curDate.split(" ")[0]);
+        int curMonth = Integer.parseInt(curDate.split(" ")[1]);
+        int curYear = Integer.parseInt(curDate.split(" ")[2]);
+        int allCur = curDay+curMonth+curYear;
+        Log.i("x2",allCur+"");
+        int index = goals.indexOf(goal);
+
+        Calendar cal1 = new GregorianCalendar();
+        Calendar cal2 = new GregorianCalendar();
+
+        SimpleDateFormat sim = new SimpleDateFormat("dd/MM/yyyy");
+        String[] curDateArr = curDate.split(" ");
+        String[] goalDateArr = goalDate.split(" ");
+        Date date1 = null;
+        Date date2 = null;
+        try {
+            String d1 = curDateArr[0]+"/"+curDateArr[1]+"/"+curDateArr[2];
+            String d2 = goalDateArr[1]+"/"+getNumMonth(goalDateArr[2])+"/"+goalDateArr[3];
+            Log.i("d1",d1);
+            Log.i("d2",d2);
+            date1 = sim.parse(d1);
+            date2 = sim.parse(d2);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        int x = daysBetween(date1,date2);
+        Log.i("d3",x+"");
+        if(x>0)
+            goals.get(index).setStatus(x+" Day");
+        else if(x==0)
+            goals.get(index).setStatus("Today");
+        else
+            goals.get(index).setStatus("Expired");
+//        return result;
+    }
+    private int daysBetween(Date date2,Date date1){
+        return (int) ((date1.getTime()-date2.getTime())/(1000*60*60*24));
+    }
+    private int getNumMonth(String s){
+        switch (s){
+            case "January": return 1;
+            case "Fabruary" : return 2;
+            case "March" : return 3;
+            case "April" : return 4;
+            case "May" : return 5;
+            case "June" : return 6;
+            case "July" : return 7;
+            case "August" : return 8;
+            case "September" : return 9;
+            case "October" : return 10;
+            case "November" : return 11;
+            case "December" : return 12;
+        }
+        return 0;
     }
 }

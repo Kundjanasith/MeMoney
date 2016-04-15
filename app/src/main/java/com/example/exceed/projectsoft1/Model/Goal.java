@@ -12,7 +12,7 @@ public class Goal {
         this.name = name;
         this.price = price;
         this.dueDate = dueDate;
-        this.status = "start";
+        this.status = ". . .";
     }
 
     public String getName() {
