@@ -37,7 +37,7 @@ public class GoalActivity extends AppCompatActivity {
         LinearLayoutManager Illm = new LinearLayoutManager(this);
         Illm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(Illm);
-        goalAdapter = new GoalAdapter();
+        goalAdapter = new GoalAdapter(recList);
         recList.setHasFixedSize(true);
         recList.setItemAnimator(new DefaultItemAnimator());
         recList.setAdapter(goalAdapter);
@@ -91,22 +91,11 @@ public class GoalActivity extends AppCompatActivity {
         LayoutInflater layoutInflater = LayoutInflater.from(GoalActivity.this);
         final View promptView = layoutInflater.inflate(R.layout.input_dategoal, null);
         final AlertDialog.Builder builder = new AlertDialog.Builder(GoalActivity.this);
-//        final NumberPicker hour = (NumberPicker) promptView.findViewById(R.id.hourPicker);
-//        hour.setMaxValue(12);
-//        hour.setMinValue(0);
-//        final NumberPicker min = (NumberPicker) promptView.findViewById(R.id.minPicker);
-//        min.setMaxValue(60);
-//        min.setMinValue(0);
-//        final NumberPicker sec = (NumberPicker) promptView.findViewById(R.id.secPicker);
-//        sec.setMaxValue(60);
-//        sec.setMinValue(0);
-//        final Spinner m = (Spinner) promptView.findViewById(R.id.mPicker);
         final CalendarView cal = (CalendarView) promptView.findViewById(R.id.calendarView);
         final String[] res = {""};
         cal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-//                String d = String.format("%2d",dayOfMonth)
                 res[0] = "";
                     MyDate myDate = new MyDate(dayOfMonth,month,year);
                 try {
@@ -117,24 +106,12 @@ public class GoalActivity extends AppCompatActivity {
                     res[0] += myDate.getDay()+" ";
                     res[0] += myDate.getReadableMonth2()+" ";
                     res[0] += myDate.getYear()+" ";
-//
             }
         });
-//        List<String> x = new ArrayList<>();
-//        x.add("AM");
-//        x.add("PM");
-//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,x);
-//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        m.setAdapter(dataAdapter);
         builder.setView(promptView);
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-//                SimpleDateFormat s = new SimpleDateFormat("EEEE dd MMMM yyyy");
-//                String am_pm = ":";
-//                if(m.getSelectedItemPosition()==0) am_pm = "AM";
-//                else am_pm = "PM";
-//                res[0] += "\t#"+hour.getValue()+":"+min.getValue()+":"+sec.getValue()+" "+am_pm;
                 tv.setText(res[0]);
             }
         });

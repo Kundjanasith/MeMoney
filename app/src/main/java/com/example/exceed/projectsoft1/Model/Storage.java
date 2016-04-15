@@ -5,9 +5,7 @@ import android.util.Log;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -111,6 +109,12 @@ public class Storage {
     public List<Expense> getExpenseFromDate(String date){
         return dayMap.get(date).getExpenses();
     }
+    public double getIncomeDate(String date){
+        return dayMap.get(date).getIncomeDay();
+    }
+    public double getExpenseDate(String date){
+        return dayMap.get(date).getExpenseDay();
+    }
     public void createDate(String date){
         Log.i("x2", date);
         if(dayMap.get(date)==null)dayMap.put(date,new Day(date));
@@ -151,6 +155,16 @@ public class Storage {
                 incomeTags.get(index).setRed(red);
                 incomeTags.get(index).setGreen(green);
                 incomeTags.get(index).setBlue(blue);
+            }
+        }
+    }
+    public void updateGoal(Goal goal,String name,double price,String date){
+        for(Goal g:goals){
+            if(g.getId()==goal.getId()){
+                int index = goals.indexOf(g);
+                goals.get(index).setName(name);
+                goals.get(index).setPrice(price);
+                goals.get(index).setDueDate(date);
             }
         }
     }
@@ -220,34 +234,58 @@ public class Storage {
         expenseTags.remove(expenseTag);
     }
 
+    public void deleteGoal(Goal goal){
+        goals.remove(goal);
+    }
+
     public void addGoal(Goal goal){
         goals.add(goal);
     }
+
     public List<Goal> getGoals(){
         return goals;
     }
 
     //return money
-//    public double getMoneyTo(MyDate mydate){
-//        double result = 0.0;
-//        int value2 = mydate.getDay()+mydate.getMonth()+mydate.getYear();
-//        Date d = new Date();
-//        int value1 = d.getDay()+d.getMonth()+d.getYear();
-//        return result;
-//    }
+    public double getMoneyTo(Goal goal){
+        double result = 0.0;
+        SimpleDateFormat sim = new SimpleDateFormat("dd/MM/yyyy");
+        Log.i("dd",goal.getDueDate());
+        Date goalDate = null;
+        try {
+            String[] temp = goal.getDueDate().split(" ");
+            String parseTemp = temp[1]+"/"+getNumMonth(temp[2])+"/"+temp[3];
+            goalDate = sim.parse(parseTemp);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        for(String key:dayMap.keySet()){
+            String[] temp = key.split(" ");
+            String parseTemp = temp[1]+"/"+getNumMonth(temp[2])+"/"+temp[3];
+            Date currDate = null;
+            try {
+                currDate = sim.parse(parseTemp);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            Log.i("goalDiff",(goalDate==null)+"");
+            Log.i("currDiff",(currDate==null)+"");
+            if(daysBetween(goalDate,currDate)<=0){
+                result+=dayMap.get(key).getTotal();
+            }
+            dayMap.get(key).getTotal();
+        }
+        return result;
+    }
 
     //return date count down status
     public void goalStatus(Goal goal){
         String result = "";
 
         String goalDate = goal.getDueDate().split("#")[0];
-//        String goalTime = goal.getDueDate().split("#")[1];
         int goalDay = Integer.parseInt(goalDate.split(" ")[1]);
         int goalMonth = getNumMonth(goalDate.split(" ")[2]);
         int goalYear = Integer.parseInt(goalDate.split(" ")[3]);
-//        int goalHour = Integer.parseInt(goalTime.split(":")[0]);
-//        int goalMin = Integer.parseInt(goalTime.split(":")[1]);
-//        int goalSec = Integer.parseInt((goalTime.split(":")[2]).split(" ")[0]);
         int allGoal = goalDay+goalMonth+goalYear;
         Log.i("x1",allGoal+"");
 
@@ -262,9 +300,6 @@ public class Storage {
         int allCur = curDay+curMonth+curYear;
         Log.i("x2",allCur+"");
         int index = goals.indexOf(goal);
-
-        Calendar cal1 = new GregorianCalendar();
-        Calendar cal2 = new GregorianCalendar();
 
         SimpleDateFormat sim = new SimpleDateFormat("dd/MM/yyyy");
         String[] curDateArr = curDate.split(" ");
@@ -289,7 +324,6 @@ public class Storage {
             goals.get(index).setStatus("Today");
         else
             goals.get(index).setStatus("Expired");
-//        return result;
     }
     private int daysBetween(Date date2,Date date1){
         return (int) ((date1.getTime()-date2.getTime())/(1000*60*60*24));

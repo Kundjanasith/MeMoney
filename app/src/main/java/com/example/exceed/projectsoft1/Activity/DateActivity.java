@@ -40,6 +40,9 @@ public class DateActivity extends AppCompatActivity {
 
     private TextView amountTotal;
 
+    private TextView incomeTotal;
+    private TextView expenseTotal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,12 @@ public class DateActivity extends AppCompatActivity {
         final String s = getIntent().getStringExtra("date");
         setBackColor(s.split(" ")[0]);
         showDate.setText(s);
+
+        incomeTotal = (TextView) findViewById(R.id.income_amount);
+        expenseTotal = (TextView) findViewById(R.id.expense_amount);
+
+        incomeTotal.setText("Income : "+Storage.getInstance().getIncomeDate(s)+"");
+        expenseTotal.setText("Expense : "+Storage.getInstance().getExpenseDate(s)+"");
 
         IrecList = (RecyclerView) findViewById(R.id.income_view);
         IrecList.setHasFixedSize(true);
@@ -128,7 +137,10 @@ public class DateActivity extends AppCompatActivity {
                         Log.i("idid",i.getId()+"");
                         Storage.getInstance().addDateIncome(showDate.getText().toString(),i);
                         Double t = Storage.getInstance().getTotal(showDate.getText().toString());
-                        amountTotal.setText("Amount : "+Storage.getInstance().getTotal(showDate.getText().toString()));
+                        amountTotal.setText("Amount : " + Storage.getInstance().getTotal(showDate.getText().toString()));
+                        incomeTotal.setText("Income : "+Storage.getInstance().getIncomeDate(showDate.getText().toString()) + "");
+                        expenseTotal.setText("Expense : "+Storage.getInstance().getExpenseDate(showDate.getText().toString())+"");
+                        IrecList.setAdapter(incomeAdapter);
                     }
                 }
                 else{
@@ -162,9 +174,12 @@ public class DateActivity extends AppCompatActivity {
                     else{
                         Expense i = new Expense(nameText.getText().toString(),"", Double.parseDouble(temp));
                         Log.i("idid",i.getId()+"");
-                        Storage.getInstance().addDateExpense(showDate.getText().toString(),i);
+                        Storage.getInstance().addDateExpense(showDate.getText().toString(), i);
                         Double t = Storage.getInstance().getTotal(showDate.getText().toString());
-                        amountTotal.setText("Amount : "+Storage.getInstance().getTotal(showDate.getText().toString()));
+                        amountTotal.setText("Amount : " + Storage.getInstance().getTotal(showDate.getText().toString()));
+                        incomeTotal.setText("Income : "+Storage.getInstance().getIncomeDate(showDate.getText().toString()) + "");
+                        expenseTotal.setText("Expense : "+Storage.getInstance().getExpenseDate(showDate.getText().toString())+"");
+                        ErecList.setAdapter(expenseAdapter);
                     }
                 }
                 else{

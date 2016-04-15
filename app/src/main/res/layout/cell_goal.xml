@@ -53,14 +53,14 @@
         android:id="@+id/textView16"
         android:layout_below="@+id/textView15"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toStartOf="@+id/goal_status" />
     <TextView
         android:id="@+id/goal_name"
         android:text="name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView16"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/edit_goal"
+        android:layout_toEndOf="@+id/textView16" />
     <TextView
         android:text="Price : "
         android:layout_width="wrap_content"
@@ -68,14 +68,14 @@
         android:id="@+id/textView17"
         android:layout_below="@+id/goal_name"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignEnd="@+id/textView16" />
     <TextView
         android:id="@+id/goal_price"
         android:text="price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView17"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/textView16"
+        android:layout_toEndOf="@+id/textView16" />
     <TextView
         android:text="Date : "
         android:layout_width="wrap_content"
@@ -83,14 +83,14 @@
         android:id="@+id/textView18"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/goal_price"
-        android:layout_alignParentEnd="true" />
+        android:layout_toStartOf="@+id/goal_price" />
     <TextView
         android:id="@+id/goal_date"
         android:text="date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView18"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/textView17"
+        android:layout_toEndOf="@+id/textView17" />
 
         <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"

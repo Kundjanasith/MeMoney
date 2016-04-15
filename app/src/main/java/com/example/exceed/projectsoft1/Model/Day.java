@@ -29,6 +29,23 @@ public class Day implements Serializable{
         return expenses;
     }
 
+    public double getIncomeDay(){
+        double res = 0.0;
+        for(Income i:incomes){
+            res+=i.getPrice();
+        }
+        return res;
+    }
+
+    public double getExpenseDay(){
+        double res = 0.0;
+        for(Expense i:expenses){
+            res+=i.getPrice();
+        }
+        return res;
+    }
+
+
     public double getTotal(){
         double result = 0;
         for(Income i:incomes){

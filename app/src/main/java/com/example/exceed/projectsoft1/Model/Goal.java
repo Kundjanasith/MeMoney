@@ -4,15 +4,21 @@ package com.example.exceed.projectsoft1.Model;
  * Created by exceed on 4/15/16 AD.
  */
 public class Goal {
+    private long id;
     private String name;
     private double price;
     private String dueDate;
     private String status;
     public Goal(String name, double price, String dueDate) {
+        this.id = System.nanoTime();
         this.name = name;
         this.price = price;
         this.dueDate = dueDate;
         this.status = ". . .";
+    }
+
+    public long getId(){
+        return this.id;
     }
 
     public String getName() {
