@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <color name="colorPrimaryDark">#FFBBBB</color>
+    <color name="colorPrimary">#FF6A65</color>
+    <color name="colorMonth">#FF9F9F</color>
+    <color name="colorClick">#FFAFAF</color>
     <color name="colorRating">#FFFC49</color>
     <color name="colorAccent">#000000</color>
     <color name="colorSunday">#FF3F3F</color>

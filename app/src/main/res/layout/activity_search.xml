@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.exceed.projectsoft1.Activity.SearchActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_income_list"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="2dp"
+        android:background="@color/colorIncome"
+        android:layout_gravity="bottom"
+        android:layout_toStartOf="@+id/search_expense_list" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginLeft="2dp"
+        android:id="@+id/search_expense_list"
+        android:layout_width="200dp"
+        android:background="@color/colorExpense"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_alignTop="@+id/search_income_list"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

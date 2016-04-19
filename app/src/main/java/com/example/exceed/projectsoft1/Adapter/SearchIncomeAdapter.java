@@ -1,44 +1,50 @@
 package com.example.exceed.projectsoft1.Adapter;
 
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 
-import com.example.exceed.projectsoft1.Model.ExpenseTag;
-import com.example.exceed.projectsoft1.Model.Storage;
+import com.example.exceed.projectsoft1.Activity.SearchActivity;
+import com.example.exceed.projectsoft1.Model.Income;
 import com.example.exceed.projectsoft1.R;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
- * Created by exceed on 4/10/16 AD.
+ * Created by exceed on 4/17/16 AD.
  */
-public class ExpenseTagAdapter extends RecyclerView.Adapter<ExpenseTagAdapter.ViewHolder> implements Serializable {
+public class SearchIncomeAdapter extends RecyclerView.Adapter<SearchIncomeAdapter.ViewHolder> implements Serializable {
     private ViewHolder viewHolder;
     OnItemClickListener mItemClickListener;
+    private List<Income> incomeList;
 
+    public SearchIncomeAdapter(SearchActivity searchActivity){
+        this.incomeList = searchActivity.getIncomeList();
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.cell_expensetag, viewGroup, false);
+                .inflate(R.layout.cell_income, viewGroup, false);
         viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int i) {
-        final ExpenseTag tag = Storage.getInstance().getExpenseTags().get(i);
-        viewHolder.tag_name.setText(tag.getName());
-        viewHolder.tag_name.setBackgroundColor(Color.rgb(tag.getRed(), tag.getGreen(), tag.getBlue()));
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        if(incomeList.get(i).getName().length()>8)
+            viewHolder.income_name.setText("Name:" + incomeList.get(i).getName().substring(0,8)+"...");
+        else
+            viewHolder.income_name.setText("Name:" + incomeList.get(i).getName());
+        viewHolder.income_price.setText("Price: " + incomeList.get(i).getPrice());
     }
 
     @Override
     public int getItemCount() {
-        return Storage.getInstance().getExpenseTags().size();
+        return incomeList.size();
     }
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
@@ -50,10 +56,13 @@ public class ExpenseTagAdapter extends RecyclerView.Adapter<ExpenseTagAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private Button tag_name;
+        private TextView income_name;
+        private TextView income_price;
+
         public ViewHolder(View v) {
             super(v);
-            tag_name = (Button) v.findViewById(R.id.tag_income);
+            income_name = (TextView) v.findViewById(R.id.income_name);
+            income_price = (TextView) v.findViewById(R.id.income_price);
             v.setOnClickListener(this);
         }
 
@@ -66,4 +75,3 @@ public class ExpenseTagAdapter extends RecyclerView.Adapter<ExpenseTagAdapter.Vi
 
     }
 }
-

@@ -30,12 +30,12 @@ public class DateActivity extends AppCompatActivity {
     private TextView showDate;
     private RelativeLayout layout;
 
-    private RecyclerView IrecList;
-    private IncomeAdapter incomeAdapter;
+    public  static RecyclerView IrecList;
+    public static IncomeAdapter incomeAdapter;
     private Button addIncomeButton;
 
-    private RecyclerView ErecList;
-    private ExpenseAdapter expenseAdapter;
+    public  static RecyclerView ErecList;
+    public static ExpenseAdapter expenseAdapter;
     private Button addExpenseButton;
 
     private TextView amountTotal;
@@ -75,7 +75,7 @@ public class DateActivity extends AppCompatActivity {
                 intent.putExtra("dateZ", s);
                 intent.putExtra("income", Storage.getInstance().getIncomeFromDate(s).get(position));
                 startActivity(intent);
-                finish();
+//                finish();
             }
         });
         addIncomeButton = (Button) findViewById(R.id.addIncome);
@@ -102,7 +102,7 @@ public class DateActivity extends AppCompatActivity {
                 intent.putExtra("dateZ", s);
                 intent.putExtra("income", Storage.getInstance().getExpenseFromDate(s).get(position));
                 startActivity(intent);
-                finish();
+//                finish();
             }
         });
         addExpenseButton = (Button) findViewById(R.id.addExpense);

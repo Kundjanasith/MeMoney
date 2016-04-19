@@ -26,6 +26,10 @@
             android:id="@+id/nav_goal"
             android:icon="@android:drawable/ic_menu_agenda"
             android:title="Goal" />
+        <item
+            android:id="@+id/nav_bank"
+            android:icon="@android:drawable/ic_menu_more"
+            android:title="Bank" />
     </group>
 
     <item android:title="Communicate">

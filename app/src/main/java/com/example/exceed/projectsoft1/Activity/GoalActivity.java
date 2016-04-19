@@ -27,6 +27,7 @@ public class GoalActivity extends AppCompatActivity {
     private FloatingActionButton add_goal;
     private GoalAdapter goalAdapter;
     private RecyclerView recList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

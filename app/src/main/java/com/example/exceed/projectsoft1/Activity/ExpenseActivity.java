@@ -1,6 +1,5 @@
 package com.example.exceed.projectsoft1.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -52,6 +51,9 @@ public class ExpenseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Storage.getInstance().deleteDateExpense(date, income);
+                DateActivity.ErecList.setAdapter(DateActivity.expenseAdapter);
+                SearchActivity.ErecList.setAdapter(SearchActivity.expenseAdapter);
+                SearchActivity.refresh();
                 onBackPressed();
                 finish();
             }
@@ -61,6 +63,9 @@ public class ExpenseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Storage.getInstance().updateExpense(date, income, tvName.getText().toString(), edDesc.getText().toString(), Double.parseDouble(tvPrice.getText().toString()));
+                DateActivity.ErecList.setAdapter(DateActivity.expenseAdapter);
+                SearchActivity.ErecList.setAdapter(SearchActivity.expenseAdapter);
+                SearchActivity.refresh();
                 onBackPressed();
                 finish();
             }
@@ -116,12 +121,12 @@ public class ExpenseActivity extends AppCompatActivity {
         rec_list.setAdapter(getAdapter);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(ExpenseActivity.this, DateActivity.class);
-        String temp = date;
-        intent.putExtra("date", temp);
-        startActivity(intent);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        Intent intent = new Intent(ExpenseActivity.this, DateActivity.class);
+//        String temp = date;
+//        intent.putExtra("date", temp);
+//        startActivity(intent);
+//    }
 }

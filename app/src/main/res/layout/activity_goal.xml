@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.exceed.projectsoft1.Activity.GoalActivity"
-    android:background="@color/tableRow">
+    android:background="@color/colorPrimaryDark">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rec_goal"

@@ -1,6 +1,5 @@
 package com.example.exceed.projectsoft1.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -42,6 +41,7 @@ public class IncomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_income);
         date = getIntent().getStringExtra("dateZ");
         income = (Income) getIntent().getSerializableExtra("income");
+
         tvDate = (TextView) findViewById(R.id.income_date);
         tvName = (EditText) findViewById(R.id.income_name);
         tvPrice = (EditText) findViewById(R.id.income_price);
@@ -53,6 +53,9 @@ public class IncomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Storage.getInstance().deleteDateIncome(date,income);
+                DateActivity.IrecList.setAdapter(DateActivity.incomeAdapter);
+                SearchActivity.IrecList.setAdapter(SearchActivity.incomeAdapter);
+                SearchActivity.refresh();
                 onBackPressed();
                 finish();
             }
@@ -62,6 +65,9 @@ public class IncomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Storage.getInstance().updateIncome(date, income, tvName.getText().toString(), edDesc.getText().toString(), Double.parseDouble(tvPrice.getText().toString()));
+                DateActivity.IrecList.setAdapter(DateActivity.incomeAdapter);
+                SearchActivity.ErecList.setAdapter(SearchActivity.expenseAdapter);
+                SearchActivity.refresh();
                 onBackPressed();
                 finish();
             }
@@ -117,12 +123,12 @@ public class IncomeActivity extends AppCompatActivity {
         rec_list.setAdapter(getAdapter);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(IncomeActivity.this, DateActivity.class);
-        String temp = date;
-        intent.putExtra("date", temp);
-        startActivity(intent);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        Intent intent = new Intent(IncomeActivity.this, DateActivity.class);
+//        String temp = date;
+//        intent.putExtra("date", temp);
+//        startActivity(intent);
+//    }
 }

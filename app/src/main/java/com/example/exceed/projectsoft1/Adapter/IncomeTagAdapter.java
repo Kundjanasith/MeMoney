@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import com.example.exceed.projectsoft1.Model.IncomeTag;
 import com.example.exceed.projectsoft1.Model.Storage;
@@ -49,10 +49,10 @@ public class IncomeTagAdapter extends RecyclerView.Adapter<IncomeTagAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private TextView tag_name;
+        private Button tag_name;
         public ViewHolder(View v) {
             super(v);
-            tag_name = (TextView) v.findViewById(R.id.tag_income);
+            tag_name = (Button) v.findViewById(R.id.tag_income);
             v.setOnClickListener(this);
         }
 

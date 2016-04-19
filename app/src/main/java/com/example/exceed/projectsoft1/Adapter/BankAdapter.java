@@ -1,44 +1,45 @@
 package com.example.exceed.projectsoft1.Adapter;
 
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
-import com.example.exceed.projectsoft1.Model.ExpenseTag;
-import com.example.exceed.projectsoft1.Model.Storage;
+import com.example.exceed.projectsoft1.Model.Bank;
 import com.example.exceed.projectsoft1.R;
 
 import java.io.Serializable;
 
 /**
- * Created by exceed on 4/10/16 AD.
+ * Created by exceed on 4/9/16 AD.
  */
-public class ExpenseTagAdapter extends RecyclerView.Adapter<ExpenseTagAdapter.ViewHolder> implements Serializable {
+public class BankAdapter extends RecyclerView.Adapter<BankAdapter.ViewHolder> implements Serializable{
     private ViewHolder viewHolder;
     OnItemClickListener mItemClickListener;
 
+    public BankAdapter(){
+
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.cell_expensetag, viewGroup, false);
+                .inflate(R.layout.cell_bank, viewGroup, false);
         viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int i) {
-        final ExpenseTag tag = Storage.getInstance().getExpenseTags().get(i);
-        viewHolder.tag_name.setText(tag.getName());
-        viewHolder.tag_name.setBackgroundColor(Color.rgb(tag.getRed(), tag.getGreen(), tag.getBlue()));
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        viewHolder.bank_name.setText(Bank.BANK_NAME[i]);
+//        viewHolder.imageButton.setImageURI();
     }
 
     @Override
     public int getItemCount() {
-        return Storage.getInstance().getExpenseTags().size();
+        return Bank.BANK_NAME.length;
     }
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
@@ -50,10 +51,13 @@ public class ExpenseTagAdapter extends RecyclerView.Adapter<ExpenseTagAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private Button tag_name;
+        private TextView bank_name;
+        private ImageButton imageButton;
+
         public ViewHolder(View v) {
             super(v);
-            tag_name = (Button) v.findViewById(R.id.tag_income);
+            bank_name = (TextView) v.findViewById(R.id.bank_name);
+            imageButton = (ImageButton) v.findViewById(R.id.imageButton);
             v.setOnClickListener(this);
         }
 

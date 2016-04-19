@@ -345,4 +345,42 @@ public class Storage {
         }
         return 0;
     }
+    public List<Income> loadIncome(){
+        List<Income> temp = new ArrayList<>();
+        for(String key:dayMap.keySet()){
+            for(Income i:dayMap.get(key).getIncomes()){
+                temp.add(i);
+            }
+        }
+        Log.i("size income",temp.size()+"");
+        return temp;
+    }
+    public List<String> loadDayIncome(){
+        List<String> temp = new ArrayList<>();
+        for(String key:dayMap.keySet()){
+            for(Income i:dayMap.get(key).getIncomes()){
+                temp.add(key);
+            }
+        }
+        return temp;
+    }
+    public List<Expense> loadExpense(){
+        List<Expense> temp = new ArrayList<>();
+        for(String key:dayMap.keySet()){
+            for(Expense i:dayMap.get(key).getExpenses()){
+                temp.add(i);
+            }
+        }
+        return temp;
+    }
+    public List<String> loadDayExpense(){
+        List<String> temp = new ArrayList<>();
+        for(String key:dayMap.keySet()){
+            for(Expense i:dayMap.get(key).getExpenses()){
+                temp.add(key);
+            }
+        }
+        return temp;
+    }
+
 }
