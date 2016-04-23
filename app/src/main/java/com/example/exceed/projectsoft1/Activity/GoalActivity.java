@@ -32,7 +32,7 @@ public class GoalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goal);
-
+        setTitle("Achivement");
         recList = (RecyclerView) findViewById(R.id.rec_goal);
         recList.setHasFixedSize(true);
         LinearLayoutManager Illm = new LinearLayoutManager(this);

@@ -66,7 +66,7 @@ public class IncomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Storage.getInstance().updateIncome(date, income, tvName.getText().toString(), edDesc.getText().toString(), Double.parseDouble(tvPrice.getText().toString()));
                 DateActivity.IrecList.setAdapter(DateActivity.incomeAdapter);
-                SearchActivity.ErecList.setAdapter(SearchActivity.expenseAdapter);
+                SearchActivity.IrecList.setAdapter(SearchActivity.incomeAdapter);
                 SearchActivity.refresh();
                 onBackPressed();
                 finish();
