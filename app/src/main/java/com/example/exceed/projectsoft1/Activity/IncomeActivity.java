@@ -52,10 +52,12 @@ public class IncomeActivity extends AppCompatActivity {
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Storage.getInstance().deleteDateIncome(date,income);
+                Storage.getInstance().deleteDateIncome(date, income);
                 DateActivity.IrecList.setAdapter(DateActivity.incomeAdapter);
-                SearchActivity.IrecList.setAdapter(SearchActivity.incomeAdapter);
-                SearchActivity.refresh();
+                if(SearchActivity.IrecList!=null){
+                    SearchActivity.IrecList.setAdapter(SearchActivity.incomeAdapter);
+                    SearchActivity.refresh();
+                }
                 onBackPressed();
                 finish();
             }
@@ -66,8 +68,10 @@ public class IncomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Storage.getInstance().updateIncome(date, income, tvName.getText().toString(), edDesc.getText().toString(), Double.parseDouble(tvPrice.getText().toString()));
                 DateActivity.IrecList.setAdapter(DateActivity.incomeAdapter);
-                SearchActivity.IrecList.setAdapter(SearchActivity.incomeAdapter);
-                SearchActivity.refresh();
+                if(SearchActivity.IrecList!=null){
+                    SearchActivity.IrecList.setAdapter(SearchActivity.incomeAdapter);
+                    SearchActivity.refresh();
+                }
                 onBackPressed();
                 finish();
             }

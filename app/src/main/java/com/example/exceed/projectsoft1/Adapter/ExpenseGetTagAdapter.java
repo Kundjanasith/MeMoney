@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.exceed.projectsoft1.Model.Expense;
-import com.example.exceed.projectsoft1.Model.ExpenseTag;
 import com.example.exceed.projectsoft1.Model.Storage;
+import com.example.exceed.projectsoft1.Model.Tag;
 import com.example.exceed.projectsoft1.R;
 
 import java.io.Serializable;
@@ -39,7 +39,7 @@ public class ExpenseGetTagAdapter extends RecyclerView.Adapter<ExpenseGetTagAdap
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
-        final ExpenseTag tag = Storage.getInstance().getExpenseTag(date, income).get(i);
+        final Tag tag = Storage.getInstance().getExpenseTag(date, income).get(i);
         viewHolder.tag_name.setText(tag.getName());
         viewHolder.tag_name.setBackgroundColor(Color.rgb(tag.getRed(), tag.getGreen(), tag.getBlue()));
         viewHolder.tag_name.setOnClickListener(new View.OnClickListener() {

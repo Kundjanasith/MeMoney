@@ -13,8 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.exceed.projectsoft1.Adapter.SearchExpenseAdapter;
-import com.example.exceed.projectsoft1.Adapter.SearchIncomeAdapter;
+import com.example.exceed.projectsoft1.Adapter.SearchAdapter;
 import com.example.exceed.projectsoft1.Model.Expense;
 import com.example.exceed.projectsoft1.Model.Income;
 import com.example.exceed.projectsoft1.Model.Storage;
@@ -26,17 +25,17 @@ import java.util.List;
 public class SearchActivity extends AppCompatActivity {
 
     private EditText searchET;
-    public static SearchIncomeAdapter incomeAdapter;
-    public static SearchExpenseAdapter expenseAdapter;
+    public static SearchAdapter incomeAdapter = null;
+    public static SearchAdapter expenseAdapter = null;
 
-    private static List<String> incomeString;
-    private static List<String> expenseString;
+    private static List<String> incomeString = new ArrayList<>();
+    private static List<String> expenseString = new ArrayList<>();
 
-    private static List<Income> incomeList;
-    private static List<Expense> expenseList;
+    private static List<Income> incomeList = new ArrayList<>();
+    private static List<Expense> expenseList = new ArrayList<>();
 
-    public static RecyclerView IrecList;
-    public static RecyclerView ErecList;
+    public static RecyclerView IrecList = null;
+    public static RecyclerView  ErecList = null;
 
     private static String text;
 
@@ -65,27 +64,29 @@ public class SearchActivity extends AppCompatActivity {
         Ellm.setOrientation(LinearLayoutManager.VERTICAL);
         ErecList.setLayoutManager(Ellm);
 
-        incomeAdapter = new SearchIncomeAdapter(this);
+        incomeAdapter = new SearchAdapter(this,"income");
         IrecList.setHasFixedSize(true);
         IrecList.setItemAnimator(new DefaultItemAnimator());
         IrecList.setAdapter(incomeAdapter);
 
-        expenseAdapter = new SearchExpenseAdapter(this);
+        expenseAdapter = new SearchAdapter(this,"expense");
         ErecList.setHasFixedSize(true);
         ErecList.setItemAnimator(new DefaultItemAnimator());
         ErecList.setAdapter(expenseAdapter);
 
-        incomeAdapter.SetOnItemClickListener(new SearchIncomeAdapter.OnItemClickListener() {
+        incomeAdapter.SetOnItemClickListener(new SearchAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(SearchActivity.this, IncomeActivity.class);
-                intent.putExtra("dateZ", incomeString.get(position));
+                System.out.println(incomeString.get(position));
+                String x = incomeString.get(position);
+                intent.putExtra("dateZ", x);
                 intent.putExtra("income", incomeList.get(position));
                 startActivity(intent);
             }
         });
 
-        expenseAdapter.SetOnItemClickListener(new SearchExpenseAdapter.OnItemClickListener() {
+        expenseAdapter.SetOnItemClickListener(new SearchAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Intent intent = new Intent(SearchActivity.this, ExpenseActivity.class);

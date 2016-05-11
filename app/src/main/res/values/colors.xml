@@ -3,6 +3,7 @@
     <!--<color name="colorPrimary">#3F51B5</color>-->
     <!--<color name="colorPrimaryDark">#303F9F</color>-->
     <color name="colorPrimaryDark">#FFBBBB</color>
+    <!--<color name="colorPrimaryDark">#FFFFFF</color>-->
     <color name="colorPrimary">#FF6A65</color>
     <color name="colorMonth">#FF9F9F</color>
     <color name="colorClick">#FFAFAF</color>
@@ -10,6 +11,7 @@
     <color name="colorAccent">#000000</color>
     <color name="colorSunday">#FF3F3F</color>
     <color name="colorMonday">#FFD67A</color>
+    <color name="colorMondayz">#FFD6AA</color>
     <color name="colorTueday">#FF8AAD</color>
     <color name="colorWednesday">#BAFF7D</color>
     <color name="colorThursday">#FF9A58</color>

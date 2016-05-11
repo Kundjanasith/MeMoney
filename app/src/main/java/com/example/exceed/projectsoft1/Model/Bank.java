@@ -42,10 +42,10 @@ public class Bank {
             "https://www.sc.com/th/en/",
             "http://www.bankasia-bd.com/home/credit_card",
             "http://www.smebank.co.th/en/",
-            "Bank for Agriculture and Agricultural Cooperatives",
-            "Export-Import Bank of Thailand",
-            "Government Saving Bank",
-            "Government Housing Bank",
-            "Islamic Bank of Thailand",
+            "http://www.baac.or.th/baac_en/",
+            "http://www.exim.go.th/en/home/",
+            "http://www.gsb.or.th",
+            "http://www.ghbank.co.th/en/",
+            "http://www.ibank.co.th/2010/en/main/",
     };
 }

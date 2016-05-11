@@ -36,15 +36,17 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Goal"
+        android:text="Acheivement"
         android:gravity="center_vertical"
         android:layout_width="291dp"
+        android:background="@color/colorFriday"
         android:textSize="30dp"
         android:layout_height="wrap_content"
         android:id="@+id/textView15"
         android:layout_alignBottom="@+id/edit_goal"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="Name : "

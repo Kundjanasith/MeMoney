@@ -6,27 +6,28 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="4dp"
+    android:background="#000000">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton" />
+        android:layout_height="match_parent"
+        android:background="#EAB7F2">
+        <!--<ImageButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/imageButton" />-->
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="name"
-            android:textSize="30dp"
+            android:textSize="18dp"
+            android:gravity="center_horizontal"
             android:id="@+id/bank_name"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/imageButton" />
+            android:textColor="#FFFFFF"/>
     </RelativeLayout>
 
 

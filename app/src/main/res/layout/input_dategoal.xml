@@ -9,40 +9,5 @@
         android:id="@+id/calendarView"
         android:layout_centerHorizontal="true" />
 
-    <!--<NumberPicker-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/minPicker"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_toEndOf="@+id/hourPicker"-->
-        <!--android:layout_marginStart="32dp" />-->
-
-    <!--<NumberPicker-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/secPicker"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_toEndOf="@+id/minPicker"-->
-        <!--android:layout_marginStart="42dp" />-->
-
-    <!--<NumberPicker-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:id="@+id/hourPicker"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignStart="@+id/calendarView"-->
-        <!--android:layout_alignBottom="@+id/minPicker" />-->
-
-    <!--<Spinner-->
-        <!--android:id="@+id/mPicker"-->
-        <!--android:gravity="center"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignBottom="@+id/secPicker"-->
-        <!--android:layout_marginBottom="56dp"-->
-        <!--android:layout_alignEnd="@+id/calendarView"-->
-        <!--android:layout_toEndOf="@+id/secPicker">-->
-    <!--</Spinner>-->
-
 
 </RelativeLayout>

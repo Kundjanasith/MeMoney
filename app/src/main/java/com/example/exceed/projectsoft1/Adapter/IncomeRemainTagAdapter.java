@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.exceed.projectsoft1.Model.Income;
-import com.example.exceed.projectsoft1.Model.IncomeTag;
 import com.example.exceed.projectsoft1.Model.Storage;
+import com.example.exceed.projectsoft1.Model.Tag;
 import com.example.exceed.projectsoft1.R;
 
 import java.io.Serializable;
@@ -43,7 +43,7 @@ public class IncomeRemainTagAdapter extends RecyclerView.Adapter<IncomeRemainTag
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int i) {
-        final IncomeTag tag = Storage.getInstance().getRemainTagI(date, income).get(i);
+        final Tag tag = Storage.getInstance().getRemainTagI(date, income).get(i);
         viewHolder.tag_name.setText(tag.getName());
         viewHolder.tag_name.setBackgroundColor(Color.rgb(tag.getRed(), tag.getGreen(), tag.getBlue()));
         viewHolder.tag_name.setOnClickListener(new View.OnClickListener() {

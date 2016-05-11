@@ -52,8 +52,10 @@ public class ExpenseActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Storage.getInstance().deleteDateExpense(date, income);
                 DateActivity.ErecList.setAdapter(DateActivity.expenseAdapter);
-                SearchActivity.ErecList.setAdapter(SearchActivity.expenseAdapter);
-                SearchActivity.refresh();
+                if(SearchActivity.ErecList!=null){
+                    SearchActivity.ErecList.setAdapter(SearchActivity.expenseAdapter);
+                    SearchActivity.refresh();
+                }
                 onBackPressed();
                 finish();
             }
@@ -64,8 +66,10 @@ public class ExpenseActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Storage.getInstance().updateExpense(date, income, tvName.getText().toString(), edDesc.getText().toString(), Double.parseDouble(tvPrice.getText().toString()));
                 DateActivity.ErecList.setAdapter(DateActivity.expenseAdapter);
-                SearchActivity.ErecList.setAdapter(SearchActivity.expenseAdapter);
-                SearchActivity.refresh();
+                if(SearchActivity.ErecList!=null){
+                    SearchActivity.ErecList.setAdapter(SearchActivity.expenseAdapter);
+                    SearchActivity.refresh();
+                }
                 onBackPressed();
                 finish();
             }

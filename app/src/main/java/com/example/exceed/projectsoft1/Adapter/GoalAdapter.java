@@ -50,15 +50,16 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.ViewHolder> im
         viewHolder.goal_name.setText(goal.getName());
         viewHolder.goal_price.setText(goal.getPrice()+"");
         viewHolder.goal_date.setText(goal.getDueDate());
-        viewHolder.goal_status.setText(goal.getStatus());
+        Storage.getInstance().goalStatus(goal);
+        if(goal.getStatus().equals("Expired"))viewHolder.goal_status.setText(goal.getStatus());
+        else viewHolder.goal_status.setText(goal.getStatus() + "\t\tYour money : "+Storage.getInstance().getMoneyTo(goal));
         viewHolder.progressBar.setMax((int) goal.getPrice());
-        viewHolder.progressBar.setProgress((int) Storage.getInstance().getMoneyTo(goal));
+        if(!goal.getStatus().equals("Expired"))viewHolder.progressBar.setProgress((int) Storage.getInstance().getMoneyTo(goal));
         double earn = Storage.getInstance().getMoneyTo(goal);
         Log.i("earn",earn+"");
         final Handler h = new Handler();
         final int delay = 1000;
-        Storage.getInstance().goalStatus(goal);
-        viewHolder.goal_status.setText(goal.getStatus());
+//        viewHolder.goal_status.setText(goal.getStatus());
 //        h.postDelayed(new Runnable() {
 //            public void run() {
 //                h.postDelayed(this, delay);

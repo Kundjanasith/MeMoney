@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold"
-        android:text="Goal"
+        android:text="Achievement"
         android:id="@+id/textView2" />
 
     <TextView
@@ -63,7 +63,6 @@
         android:src="@android:drawable/ic_menu_my_calendar"
         android:layout_gravity="right"
         android:id="@+id/add_date"
-        android:background="@color/colorMonday"
         android:layout_alignBottom="@+id/goal_date"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/textView18"

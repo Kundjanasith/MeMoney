@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.exceed.projectsoft1.Model.Bank;
@@ -52,12 +51,12 @@ public class BankAdapter extends RecyclerView.Adapter<BankAdapter.ViewHolder> im
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView bank_name;
-        private ImageButton imageButton;
+//        private ImageButton imageButton;
 
         public ViewHolder(View v) {
             super(v);
             bank_name = (TextView) v.findViewById(R.id.bank_name);
-            imageButton = (ImageButton) v.findViewById(R.id.imageButton);
+//            imageButton = (ImageButton) v.findViewById(R.id.imageButton);
             v.setOnClickListener(this);
         }
 

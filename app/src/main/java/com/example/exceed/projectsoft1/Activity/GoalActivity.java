@@ -69,8 +69,8 @@ public class GoalActivity extends AppCompatActivity {
         builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if(isDouble(priceText.getText().toString())&&!dateText.getText().toString().equals("date")) {
-                    if(!isExceed(priceText.getText().toString())) {
+                if (isDouble(priceText.getText().toString()) && !dateText.getText().toString().equals("date")) {
+                    if (!isExceed(priceText.getText().toString())) {
                         String n = nameText.getText().toString();
                         double p = Double.parseDouble(priceText.getText().toString());
                         String d = dateText.getText().toString();

@@ -21,6 +21,14 @@ public class MyDate {
         this.year = year;
     }
 
+    public static int getMonthName(String name){
+        int result = 0;
+        for(int i=0 ; i<monthName.length ; i++){
+            if(name.equals(monthName[i])) result = i+1;
+        }
+        return result;
+    }
+
     public int getDay() {
         return day;
     }

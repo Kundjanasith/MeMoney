@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent MS = new Intent(MainActivity.this, SearchActivity.class);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -132,6 +133,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_search) {
             Intent intent = new Intent(MainActivity.this, SearchActivity.class);
             startActivity(intent);
+            if(SearchActivity.IrecList!=null&&SearchActivity.ErecList!=null)SearchActivity.refresh();
             return true;
         }
 
@@ -144,19 +146,25 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        } else if (id == R.id.nav_tag) {
+//        if (id == R.id.nav_camera) {
+//            // Handle the camera action
+//        } else if (id == R.id.nav_gallery) {
+//
+//        } else if (id == R.id.nav_slideshow) {
+//
+//        } else if (id == R.id.nav_manage) {
+//
+//        } else
+//        if (id == R.id.nav_share) {
+//
+//        } else if (id == R.id.nav_send) {
+//
+//        } else
+        if (id ==R.id.nav_gallery){
+            Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivity(intent);
+        }
+        if (id == R.id.nav_tag) {
             Intent intent = new Intent(MainActivity.this, TagActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_goal) {
@@ -243,6 +251,7 @@ public class MainActivity extends AppCompatActivity
             dayNum++;
             calendar[0][i].setText(dayNum+"");
         }
+        boolean check = true;
         for(int i=1 ; i<6 ; i++){
             for(int j=0 ; j<7 ; j++){
                 dayNum++;
@@ -253,9 +262,10 @@ public class MainActivity extends AppCompatActivity
                     calendar[i][j].setEnabled(false);
                     dayNext++;
                 }
-                if(Integer.parseInt(calendar[i][j].getText().toString())==d&&month==m&&year==y){
+                if(Integer.parseInt(calendar[i][j].getText().toString())==d&&month==m&&year==y&&check){
                     Log.i("check", "L");
                     calendar[i][j].setTextColor(Color.BLACK);
+                    check = false;
                 }
             }
         }

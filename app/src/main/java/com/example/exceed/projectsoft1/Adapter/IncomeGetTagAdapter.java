@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.exceed.projectsoft1.Model.Income;
-import com.example.exceed.projectsoft1.Model.IncomeTag;
 import com.example.exceed.projectsoft1.Model.Storage;
+import com.example.exceed.projectsoft1.Model.Tag;
 import com.example.exceed.projectsoft1.R;
 
 import java.io.Serializable;
@@ -39,7 +39,7 @@ public class IncomeGetTagAdapter extends RecyclerView.Adapter<IncomeGetTagAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
-        final IncomeTag tag = Storage.getInstance().getIncomeTag(date, income).get(i);
+        final Tag tag = Storage.getInstance().getIncomeTag(date, income).get(i);
         viewHolder.tag_name.setText(tag.getName());
         viewHolder.tag_name.setBackgroundColor(Color.rgb(tag.getRed(), tag.getGreen(), tag.getBlue()));
         viewHolder.tag_name.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +52,7 @@ public class IncomeGetTagAdapter extends RecyclerView.Adapter<IncomeGetTagAdapte
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Storage.getInstance().outIncomeEachTag(date,income,tag);
+                        Storage.getInstance().outIncomeEachTag(date, income, tag);
                         notifyDataSetChanged();
                     }
                 });
@@ -65,6 +65,13 @@ public class IncomeGetTagAdapter extends RecyclerView.Adapter<IncomeGetTagAdapte
                 builder.show();
             }
         });
+//        viewHolder.tag_name.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//                Log.i("Click", tag.getName());
+//                return false;
+//            }
+//        });
     }
 
     @Override
