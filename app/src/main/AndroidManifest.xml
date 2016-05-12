@@ -27,12 +27,18 @@
         <activity android:name=".Activity.GoalActivity" />
         <activity android:name=".Activity.BankActivity" />
         <activity android:name=".Activity.WebBankActivity" />
-        <activity android:name=".Activity.SearchActivity"></activity>
-        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <activity android:name=".Activity.SearchActivity" />
+        <!--
+             ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".Activity.SearchTag" />
+        <activity android:name=".Activity.STagActivity" />
+        <activity android:name=".Activity.ShareActivity"></activity>
     </application>
 
 </manifest>

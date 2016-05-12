@@ -386,5 +386,7 @@ public class Storage {
         }
         return temp;
     }
-
+    public Map<String,Day> getDayMap(){
+        return dayMap;
+    }
 }

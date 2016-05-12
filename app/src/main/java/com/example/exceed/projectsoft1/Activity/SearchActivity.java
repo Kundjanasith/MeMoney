@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.exceed.projectsoft1.Adapter.SearchAdapter;
+import com.example.exceed.projectsoft1.Adapter.SearchTagAdapter;
 import com.example.exceed.projectsoft1.Model.Expense;
 import com.example.exceed.projectsoft1.Model.Income;
 import com.example.exceed.projectsoft1.Model.Storage;
@@ -134,6 +135,23 @@ public class SearchActivity extends AppCompatActivity {
 
             }
         });
+        searchTag();
+    }
+
+    private void searchTag() {
+        RecyclerView rec0 = (RecyclerView) findViewById(R.id.income_view);
+        rec0.setHasFixedSize(true);
+        LinearLayoutManager llm0 = new LinearLayoutManager(this);
+        llm0.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rec0.setLayoutManager(llm0);
+        rec0.setAdapter(new SearchTagAdapter("income"));
+
+        RecyclerView rec1 = (RecyclerView) findViewById(R.id.expense_view);
+        rec1.setHasFixedSize(true);
+        LinearLayoutManager llm1 = new LinearLayoutManager(this);
+        llm1.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rec1.setLayoutManager(llm1);
+        rec1.setAdapter(new SearchTagAdapter("expense"));
     }
 
     private static void filterIncome() {
@@ -143,7 +161,7 @@ public class SearchActivity extends AppCompatActivity {
         List<Income> incomes =  Storage.getInstance().loadIncome();
         Log.i("searhc incomes",incomes.size()+"");
         for(int i=0 ; i<incomes.size() ; i++){
-            if(incomes.get(i).getName().contains(query)){
+            if(incomes.get(i).getName().contains(query)&&!query.equals("")){
                 Log.i("searhc size","yesy");
                 incomeList.add(Storage.getInstance().loadIncome().get(i));
                 incomeString.add(Storage.getInstance().loadDayIncome().get(i));
@@ -159,7 +177,7 @@ public class SearchActivity extends AppCompatActivity {
         expenseString.clear();
         List<Expense> expenses = Storage.getInstance().loadExpense();
         for(int i=0 ; i<expenses.size() ; i++){
-            if(expenses.get(i).getName().contains(query)){
+            if(expenses.get(i).getName().contains(query)&&!query.equals("")){
                 expenseList.add(Storage.getInstance().loadExpense().get(i));
                 expenseString.add(Storage.getInstance().loadDayExpense().get(i));
             }
@@ -176,6 +194,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public static void refresh(){
+        text = "";
         filterExpense();
         filterIncome();
     }

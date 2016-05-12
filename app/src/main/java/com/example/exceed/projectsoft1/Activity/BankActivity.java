@@ -21,6 +21,7 @@ public class BankActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank);
+        setTitle("Bank");
         recyclerView = (RecyclerView) findViewById(R.id.bank_view);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager Illm = new LinearLayoutManager(this);

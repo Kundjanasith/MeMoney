@@ -160,6 +160,10 @@ public class MainActivity extends AppCompatActivity
 //        } else if (id == R.id.nav_send) {
 //
 //        } else
+//        if (id == R.id.nav_search){
+//            Intent intent = new Intent(MainActivity.this, SearchTag.class);
+//            startActivity(intent);
+//        }
         if (id ==R.id.nav_gallery){
             Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
             startActivity(intent);

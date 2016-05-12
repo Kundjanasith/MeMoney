@@ -58,5 +58,12 @@ public class Tag implements Serializable {
     public void setBlue(int blue) {
         this.blue = blue;
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tag)) return false;
+        Tag income = (Tag) o;
+        return id == income.id;
+    }
 }
 

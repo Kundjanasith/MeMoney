@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.exceed.projectsoft1.Activity.SearchActivity"
+    tools:context="com.example.exceed.projectsoft1.Activity.SearchTag"
     android:background="@color/colorPrimaryDark">
 
     <android.support.v7.widget.RecyclerView
@@ -21,7 +21,7 @@
     </android.support.v7.widget.RecyclerView>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/search_income_list"
+        android:id="@+id/show_income_view"
         android:layout_width="180dp"
         android:layout_marginLeft="5dp"
         android:layout_height="match_parent"
@@ -31,7 +31,7 @@
     </android.support.v7.widget.RecyclerView>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/search_expense_list"
+        android:id="@+id/show_expense_view"
         android:layout_width="180dp"
         android:layout_marginRight="5dp"
         android:layout_height="match_parent"
@@ -50,6 +50,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true">
     </android.support.v7.widget.RecyclerView>
-
 
 </RelativeLayout>

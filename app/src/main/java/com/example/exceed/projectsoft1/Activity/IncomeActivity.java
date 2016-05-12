@@ -58,7 +58,7 @@ public class IncomeActivity extends AppCompatActivity {
                     SearchActivity.IrecList.setAdapter(SearchActivity.incomeAdapter);
                     SearchActivity.refresh();
                 }
-                onBackPressed();
+//                onBackPressed();
                 finish();
             }
         });
@@ -72,7 +72,7 @@ public class IncomeActivity extends AppCompatActivity {
                     SearchActivity.IrecList.setAdapter(SearchActivity.incomeAdapter);
                     SearchActivity.refresh();
                 }
-                onBackPressed();
+//                onBackPressed();
                 finish();
             }
         });

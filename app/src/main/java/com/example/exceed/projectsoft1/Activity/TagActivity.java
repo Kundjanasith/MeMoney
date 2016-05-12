@@ -42,7 +42,7 @@ public class TagActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tag);
-
+        setTitle("TagManager");
         IrecList = (RecyclerView) findViewById(R.id.income_view);
         IrecList.setHasFixedSize(true);
         LinearLayoutManager Illm = new LinearLayoutManager(this);
