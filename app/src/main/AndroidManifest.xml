@@ -38,7 +38,8 @@
 
         <activity android:name=".Activity.SearchTag" />
         <activity android:name=".Activity.STagActivity" />
-        <activity android:name=".Activity.ShareActivity"></activity>
+        <activity android:name=".Activity.ShareActivity" />
+        <activity android:name=".Activity.CurrencyActivity"></activity>
     </application>
 
 </manifest>

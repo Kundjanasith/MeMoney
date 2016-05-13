@@ -13,9 +13,8 @@ public class ShareActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web_bank);
         String url = "http://www.facebook.com";
+        setTitle("Facebook");
         WebView webView = (WebView) findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());

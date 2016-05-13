@@ -164,6 +164,14 @@ public class MainActivity extends AppCompatActivity
 //            Intent intent = new Intent(MainActivity.this, SearchTag.class);
 //            startActivity(intent);
 //        }
+        if (id == R.id.nav_cer){
+            Intent intent = new Intent(MainActivity.this, CurrencyActivity.class);
+            startActivity(intent);
+        }
+        if (id ==R.id.nav_share){
+            Intent intent = new Intent(MainActivity.this, ShareActivity.class);
+            startActivity(intent);
+        }
         if (id ==R.id.nav_gallery){
             Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
             startActivity(intent);
